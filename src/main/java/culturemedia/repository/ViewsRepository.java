@@ -1,6 +1,6 @@
-package artifactId.repository;
+package culturemedia.repository;
 
-import artifactId.model.View;
+import culturemedia.model.View;
 
 public interface ViewsRepository {
     View agregar(View view);

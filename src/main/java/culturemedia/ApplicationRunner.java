@@ -1,4 +1,4 @@
-package artifactId;
+package culturemedia;
 
 public class ApplicationRunner {
 }

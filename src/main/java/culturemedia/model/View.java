@@ -1,4 +1,4 @@
-package artifactId.model;
+package culturemedia.model;
 
 import java.time.LocalDateTime;
 

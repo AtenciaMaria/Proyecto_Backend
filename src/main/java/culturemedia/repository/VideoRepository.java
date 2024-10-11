@@ -1,6 +1,6 @@
-package artifactId.repository;
+package culturemedia.repository;
 
-import artifactId.model.Video;
+import culturemedia.model.Video;
 
 import java.util.List;
 

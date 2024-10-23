@@ -1,4 +1,4 @@
-package culturemedia.repository;
+package culturemedia.service;
 
 import culturemedia.exception.DuracionNotValidException;
 import culturemedia.exception.VideoNotFountException;

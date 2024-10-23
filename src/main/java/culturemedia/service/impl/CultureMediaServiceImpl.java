@@ -1,9 +1,9 @@
-package culturemedia.repository.impl;
+package culturemedia.service.impl;
 
 import culturemedia.exception.DuracionNotValidException;
 import culturemedia.model.Video;
 import culturemedia.model.View;
-import culturemedia.repository.CultureMediaService;
+import culturemedia.service.CultureMediaService;
 import culturemedia.repository.VideoRepository;
 import culturemedia.repository.ViewsRepository;
 

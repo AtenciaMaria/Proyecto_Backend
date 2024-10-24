@@ -27,9 +27,9 @@ public class VideoRepositoryImpl implements VideoRepository {
 	@Override
 	public List<Video> buscar(String title) {
 		List<Video> filteredVideos = null;
-		for ( Video video : videos ) {
-			if(video.titulo().contains( title )){
-				if(filteredVideos == null){
+		for (Video video : videos) {
+			if (video.titulo().toLowerCase().contains(title.toLowerCase())) {
+				if (filteredVideos == null) {
 					filteredVideos = new ArrayList<Video>();
 				}
 				filteredVideos.add(video);

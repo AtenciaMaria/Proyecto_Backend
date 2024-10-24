@@ -28,7 +28,7 @@ public class VideoRepositoryImpl implements VideoRepository {
 	public List<Video> buscar(String title) {
 		List<Video> filteredVideos = null;
 		for ( Video video : videos ) {
-			if(title.equals( video.titulo() )){
+			if(video.titulo().contains( title )){
 				if(filteredVideos == null){
 					filteredVideos = new ArrayList<Video>();
 				}
@@ -42,7 +42,7 @@ public class VideoRepositoryImpl implements VideoRepository {
 	public List<Video> buscar(Double fromDuration, Double toDuration) {
 		List<Video> filteredVideos = new ArrayList<Video>();
 		for ( Video video : videos ) {
-			if(video.duracion()> fromDuration && video.duracion()< toDuration){
+			if(video.duracion()>= fromDuration && video.duracion()<= toDuration){
 				filteredVideos.add(video);
 			}
 		}

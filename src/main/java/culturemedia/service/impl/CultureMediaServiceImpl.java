@@ -46,16 +46,19 @@ public class CultureMediaServiceImpl implements CultureMediaService {
     }
 
     @Override
-    public List<Video> buscar(String titulo) {
-        List<Video> filteredVideos = null;
-        for (Video video : videos) {
-            if (video.titulo().toLowerCase().contains(titulo.toLowerCase())) {
-                if (filteredVideos == null) {
-                    filteredVideos = new ArrayList<Video>();
-                }
-                filteredVideos.add(video);
-            }
+    public List<Video> buscar(String titulo) throws VideoNotFoundException {
+        List<Video> videos = this.videoRepository.buscar(titulo);
+        if (videos.isEmpty()) {
+            throw new VideoNotFoundException();
         }
-        return filteredVideos;
+        return videos;
+    }
+    @Override
+    public List<Video> buscar(Double desdeDuracion, Double hastaDuracion) throws VideoNotFoundException {
+        List<Video> videos = this.videoRepository.buscar(desdeDuracion, hastaDuracion);
+        if (videos.isEmpty()) {
+            throw new VideoNotFoundException();
+        }
+        return videos;
     }
 }

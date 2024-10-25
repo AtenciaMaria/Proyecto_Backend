@@ -25,9 +25,8 @@ class CultureMediaServiceTest {
         VideoRepository videoRepository = new VideoRepositoryImpl();
         ViewsRepository viewsRepository = new ViewsRepositoryImpl();
         cultureMediaService = new CultureMediaServiceImpl(videoRepository , viewsRepository);
-
-
     }
+
      void agregarVideos() throws DuracionNotValidException {
         List<Video> videos = List.of(new Video("01", "Título 1", "----", 4.5),
                 new Video("02", "Título 2", "----", 5.5),
@@ -38,7 +37,6 @@ class CultureMediaServiceTest {
 
         for (Video video : videos) {
             cultureMediaService.agregar(video);
-
         }
     }
     @Test
@@ -47,9 +45,35 @@ class CultureMediaServiceTest {
         List<Video> videos = cultureMediaService.listarTodos( );
         assertEquals(6, videos.size());
     }
+
     @Test
     void when_FindAll_does_not_find_any_video_an_VideoNotFoundException_should_be_thrown_successfully() {
         assertThrows(VideoNotFoundException.class, () -> cultureMediaService.listarTodos());
     }
 
+    @Test
+    void when_FindByTitle_only_videos_which_contains_the_word_in_the_title_should_be_returned_successfully() throws DuracionNotValidException, VideoNotFoundException {
+        agregarVideos();
+        List<Video> videos = cultureMediaService.buscar( "Clic" );
+        assertEquals(2, videos.size());
+    }
+
+    @Test
+    void when_FindByTitle_does_not_match_any_video_an_VideoNotFoundException_should_be_thrown_successfully() throws  DuracionNotValidException {
+        agregarVideos();
+        assertThrows(VideoNotFoundException.class, () -> cultureMediaService.buscar("No coincide"));
+    }
+
+    @Test
+    void when_FindByDuration_only_videos_between_the_range_should_be_returned_successfully() throws DuracionNotValidException, VideoNotFoundException {
+        agregarVideos();
+        List<Video> videos = cultureMediaService.buscar( 4.5, 5.7 );
+        assertEquals(4, videos.size());
+    }
+
+    @Test
+    void when_FindByDuration_does_not_match_any_video_an_VideoNotFoundException_should_be_thrown_successfully() throws DuracionNotValidException {
+        agregarVideos();
+        assertThrows(VideoNotFoundException.class, () -> cultureMediaService.buscar(7.0,8.0) );
+    }
 }

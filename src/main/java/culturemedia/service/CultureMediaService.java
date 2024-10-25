@@ -11,5 +11,6 @@ public interface CultureMediaService {
     List<Video> listarTodos() throws VideoNotFoundException;
     Video agregar(Video video) throws DuracionNotValidException;
     View agregar(View view) /*throws VideoNotFountException*/;
-    List<Video> buscar(String titulo);
+    List<Video> buscar(String titulo) throws VideoNotFoundException;
+    List<Video> buscar(Double desdeDuracion, Double hastaDuracion)throws VideoNotFoundException;
 }

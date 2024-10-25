@@ -26,6 +26,14 @@ public class VideoRepositoryImpl implements VideoRepository {
 
 	@Override
 	public List<Video> buscar(String title) {
+		List<Video> filteredVideos = new ArrayList<>();
+		for ( Video video : videos ) {
+			if (video.titulo().contains(title)) {
+				filteredVideos.add(video);
+			}
+		}
+		return filteredVideos;
+		/*
 		List<Video> filteredVideos = null;
 		for (Video video : videos) {
 			if (video.titulo().toLowerCase().contains(title.toLowerCase())) {
@@ -35,7 +43,7 @@ public class VideoRepositoryImpl implements VideoRepository {
 				filteredVideos.add(video);
 			}
 		}
-		return filteredVideos;
+		return filteredVideos;*/
 	}
 
 	@Override

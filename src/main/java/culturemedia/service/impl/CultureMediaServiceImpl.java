@@ -8,7 +8,6 @@ import culturemedia.service.CultureMediaService;
 import culturemedia.repository.VideoRepository;
 import culturemedia.repository.ViewsRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CultureMediaServiceImpl implements CultureMediaService {

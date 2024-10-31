@@ -1,6 +1,5 @@
 package culturemedia.controller;
 
-import java.text.MessageFormat;
 import java.util.*;
 
 import culturemedia.exception.VideoNotFoundException;

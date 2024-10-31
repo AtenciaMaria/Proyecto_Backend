@@ -15,12 +15,10 @@ public class CultureMediaServiceImpl implements CultureMediaService {
 
     private final VideoRepository videoRepository;
     private final ViewsRepository viewsRepository;
-    private final List<Video> videos;
 
     public CultureMediaServiceImpl(VideoRepository videoRepository, ViewsRepository viewsRepository) {
         this.videoRepository = videoRepository;
         this.viewsRepository = viewsRepository;
-        videos = new ArrayList<>();
     }
 
     @Override

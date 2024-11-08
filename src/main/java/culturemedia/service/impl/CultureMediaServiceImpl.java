@@ -7,9 +7,10 @@ import culturemedia.model.View;
 import culturemedia.service.CultureMediaService;
 import culturemedia.repository.VideoRepository;
 import culturemedia.repository.ViewsRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class CultureMediaServiceImpl implements CultureMediaService {
 
     private final VideoRepository videoRepository;
@@ -29,11 +30,7 @@ public class CultureMediaServiceImpl implements CultureMediaService {
         return videos;
     }
 
-
-    public Video agregar(Video video) throws DuracionNotValidException{
-        if (video.duracion() <=0){
-            throw new DuracionNotValidException(video.titulo(),video.duracion());
-        }
+    public Video agregar(Video video) {
         return this.videoRepository.agregarVideo(video);
     }
 

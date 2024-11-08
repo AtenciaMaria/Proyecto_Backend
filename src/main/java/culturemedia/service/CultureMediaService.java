@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface CultureMediaService {
     List<Video> listarTodos() throws VideoNotFoundException;
-    Video agregar(Video video) throws DuracionNotValidException;
-    View agregar(View view) /*throws VideoNotFountException*/;
+    Video agregar(Video video);
+    View agregar(View view);
     List<Video> buscar(String titulo) throws VideoNotFoundException;
     List<Video> buscar(Double desdeDuracion, Double hastaDuracion)throws VideoNotFoundException;
 }

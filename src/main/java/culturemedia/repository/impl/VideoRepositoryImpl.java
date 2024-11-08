@@ -4,7 +4,9 @@ import java.util.List;
 
 import culturemedia.model.Video;
 import culturemedia.repository.VideoRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VideoRepositoryImpl implements VideoRepository {
 
 	private final List<Video> videos;
@@ -33,17 +35,6 @@ public class VideoRepositoryImpl implements VideoRepository {
 			}
 		}
 		return filteredVideos;
-		/*
-		List<Video> filteredVideos = null;
-		for (Video video : videos) {
-			if (video.titulo().toLowerCase().contains(title.toLowerCase())) {
-				if (filteredVideos == null) {
-					filteredVideos = new ArrayList<Video>();
-				}
-				filteredVideos.add(video);
-			}
-		}
-		return filteredVideos;*/
 	}
 
 	@Override
